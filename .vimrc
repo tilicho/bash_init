@@ -5,4 +5,5 @@ set number
 set mouse=a
 set paste
 set autoindent
-
+set tabstop=4
+set noexpandtab
