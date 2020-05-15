@@ -7,3 +7,4 @@ set paste
 set autoindent
 set tabstop=4
 set noexpandtab
+set splitright
