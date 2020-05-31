@@ -7,7 +7,6 @@ OPTIONS=(
    --exclude="/mnt/"
    --exclude="/media/"
    --exclude="/lost+found/"
-   --exclude="/home/pi/nexmon/"
    --exclude="/var/"
     --recursive
     --partial
@@ -15,5 +14,10 @@ OPTIONS=(
     -avz
 )
 
-rsync  "${OPTIONS[@]}" "/" "ser@lostbook.local:/Volumes/OS/pi/"
+
+userName=$1
+hostName=$2
+outDir="/Volumes/etc/backup"
+mkdir "$outDir/$hostname"
+rsync  "${OPTIONS[@]}" "$userName@$hostName:/" "$outDir/hostname/"
 
