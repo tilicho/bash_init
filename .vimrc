@@ -10,3 +10,9 @@ set sw=4
 set sts=4
 set noexpandtab
 set splitright
+
+
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
