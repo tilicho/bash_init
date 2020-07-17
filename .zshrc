@@ -3,6 +3,8 @@ alias py=python3
 alias shutdown='sudo shutdown -f now'
 
 autoload -U compinit
+autoload -U history-search-end
+
 compinit
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -22,5 +24,5 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
+bindkey "$terminfo[kcuu1]" history-beginning-search-backward
+bindkey "$terminfo[kcud1]" history-beginning-search-forward
