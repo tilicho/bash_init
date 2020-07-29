@@ -2,7 +2,7 @@ set enc=utf-8
 syntax off
 set autoread
 set number
-set mouse=a
+set mouse=r
 set paste
 set autoindent
 set tabstop=4
