@@ -1,10 +1,12 @@
-alias grep='grep --color'
+alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
+alias less='less -r'
+alias ls='ls --color'
 
-autoload -U compinit
-autoload -U history-search-end
+export PROMPT='>'
 
+#autoload -U compinit
 compinit
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -24,8 +26,8 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 
+
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
-
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
