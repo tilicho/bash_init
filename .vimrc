@@ -11,6 +11,9 @@ set sts=4
 set noexpandtab
 set splitright
 
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 noremap <Leader>y "*y
 noremap <Leader>p "*p
