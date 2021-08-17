@@ -1,0 +1,30 @@
+[user]
+	name = tilicho
+[core]
+	autocrlf = input
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[status]
+	showUntrackedFiles = no
+[mergetool]
+	keepBackup = false
+[push]
+	default = current
+[alias]
+    f = fetch --prune --prune-tags --no-tags --update-head-ok origin master:master
+    au = add -u
+    diffs = diff --staged
+    pushf = push --force-with-lease
+    ss = status --short --branch
+    s = status
+    showfiles = diff-tree --no-commit-id --name-status -r
+    ri = "!COUNT=`git cherry master | wc -l`; git rebase -i HEAD~$COUNT;"
+    sq = "!f(){ COUNT=`git cherry master | wc -l`; if [ $COUNT -gt 1 ]; then git reset --soft HEAD~$(($COUNT - 1)) && git commit --amend --no-verify $*; else echo error: nothing to squash; fi }; f"
+    unstageall = "!git diff --staged --no-color | git apply --cached --reverse --whitespace=nowarn"
+    unstage = "!f(){ ARGS=(\"$@\"); PATCH=`git diff --staged --no-color -- ${ARGS[@]/#/$GIT_PREFIX}`; [ ! -z \"$PATCH\" ] && echo \"$PATCH\" | git apply --cached --reverse --whitespace=nowarn }; f"
+    undo = "!f(){ if [ $# -eq 0 ]; then echo usage: git undo [filename]; else (ARGS=(\"$@\"); PATCH=`git diff --no-color -- ${ARGS[@]/#/$GIT_PREFIX}`; [ ! -z \"$PATCH\" ] && echo \"$PATCH\" | git apply --reverse --whitespace=nowarn); fi }; f"
+    undoall = "!git diff --no-color | git apply --reverse --whitespace=nowarn"
+    amend = "!f(){ COUNT=`git cherry master | wc -l`; if [ $COUNT -ne 0 ]; then git commit --amend --no-edit $*; else echo error: no commit to append to; fi }; f"
