@@ -3,17 +3,17 @@ syntax off
 set autoread
 set number
 set mouse=r
-set paste
 set autoindent
-set tabstop=4
-set sw=4
-set sts=4
-set noexpandtab
+set paste
 set splitright
 
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backupdir=~/.vim//
+set directory=~/.vim//
+set undodir=~/.vim//
+
+
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+set ruler
 
 noremap <Leader>y "*y
 noremap <Leader>p "*p
