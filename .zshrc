@@ -1,3 +1,4 @@
+PATH=$PATH:/opt/homebrew/bin
 alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
@@ -6,7 +7,15 @@ alias ls='ls --color'
 
 export PROMPT='>'
 
-#autoload -U compinit
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+autoload -U compinit
 compinit
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -24,8 +33,6 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-
-
 
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
