@@ -1,5 +1,3 @@
-[user]
-	name = tilicho
 [core]
 	autocrlf = input
 [filter "lfs"]
