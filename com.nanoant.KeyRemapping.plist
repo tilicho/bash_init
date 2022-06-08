@@ -1,8 +1,16 @@
-hidutil property --set '{"UserKeyMapping":[]}'
-
-
-hidutil property --set '{"UserKeyMapping":[
-			{
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.nanoant.KeyRemapping</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/hidutil</string>
+        <string>property</string>
+        <string>--set</string>
+        <string>{"UserKeyMapping":[
+  			{
               "HIDKeyboardModifierMappingDst": 0x7000000E2,
               "HIDKeyboardModifierMappingSrc": 0x7000000E3
             },
@@ -22,17 +30,18 @@ hidutil property --set '{"UserKeyMapping":[
               "HIDKeyboardModifierMappingDst": 0x700000052,
               "HIDKeyboardModifierMappingSrc": 0x7000000E5
             },
-			{
+            {
               "HIDKeyboardModifierMappingSrc": 0x7000000E6,
               "HIDKeyboardModifierMappingDst": 0x7000000E4
             },
-			{
+            {
               "HIDKeyboardModifierMappingSrc": 0x7000000E7,
               "HIDKeyboardModifierMappingDst": 0x700000049
             },
 
-	
-	]}'
-
-
-hidutil property --get "UserKeyMapping"
+		]}</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
