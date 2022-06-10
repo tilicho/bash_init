@@ -1,21 +1,17 @@
+inoremap jk <ESC>
+let mapleader = "'"
+syntax on
 set enc=utf-8
-syntax off
-set autoread
 set number
 set mouse=r
 set autoindent
-set paste
+set tabstop=4
+set sw=4
+set sts=4
+set noexpandtab
 set splitright
+set ignorecase
+set incsearch
+set noswapfile
+set hlsearch
 
-set backupdir=~/.vim//
-set directory=~/.vim//
-set undodir=~/.vim//
-
-
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
-set ruler
-
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p

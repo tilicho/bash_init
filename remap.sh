@@ -23,12 +23,12 @@ hidutil property --set '{"UserKeyMapping":[
               "HIDKeyboardModifierMappingSrc": 0x7000000E5
             },
 			{
-              "HIDKeyboardModifierMappingSrc": 0x7000000E6,
-              "HIDKeyboardModifierMappingDst": 0x7000000E4
+              "HIDKeyboardModifierMappingDst": 0x7000000E4,
+              "HIDKeyboardModifierMappingSrc": 0x7000000E6
             },
 			{
-              "HIDKeyboardModifierMappingSrc": 0x7000000E7,
-              "HIDKeyboardModifierMappingDst": 0x700000049
+              "HIDKeyboardModifierMappingDst": 0x700000049,
+              "HIDKeyboardModifierMappingSrc": 0x7000000E7
             },
 
 	
