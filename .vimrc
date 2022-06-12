@@ -14,4 +14,4 @@ set ignorecase
 set incsearch
 set noswapfile
 set hlsearch
-
+nnoremap ,<space> :nohlsearch<CR>
