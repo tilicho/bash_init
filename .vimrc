@@ -15,4 +15,4 @@ set incsearch
 set noswapfile
 set hlsearch
 colorscheme blue
-
+set clipboard^=unnamed,unnamedplus
