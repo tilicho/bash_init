@@ -3,7 +3,7 @@ let mapleader = "'"
 syntax on
 set enc=utf-8
 set number
-set mouse=r
+set mouse=a
 set autoindent
 set tabstop=4
 set sw=4
@@ -14,4 +14,5 @@ set ignorecase
 set incsearch
 set noswapfile
 set hlsearch
-nnoremap ,<space> :nohlsearch<CR>
+colorscheme blue
+
