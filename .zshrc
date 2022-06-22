@@ -6,7 +6,7 @@ alias less='less -r'
 alias ls='ls --color'
 
 export PROMPT='>'
-export FPP_EDITOR="vim -p "
+export FPP_EDITOR="vim -p"
 
 if type brew &>/dev/null
 then
