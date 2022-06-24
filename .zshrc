@@ -4,10 +4,12 @@ alias py=python3
 alias shutdown='sudo shutdown -f now'
 alias less='less -r'
 alias ls='ls --color'
+alias nvim='nvim -u ~/.vimrc'
+alias vim='nvim -u ~/.vimrc'
 
 export PROMPT='>'
 export FPP_EDITOR="vim -p"
-
+export ASAN_OPTIONS=abort_on_error=1
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
