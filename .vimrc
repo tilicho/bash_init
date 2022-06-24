@@ -16,3 +16,4 @@ set noswapfile
 set hlsearch
 colorscheme blue
 set clipboard^=unnamed,unnamedplus
+:tnoremap <Esc> <C-\><C-n>
