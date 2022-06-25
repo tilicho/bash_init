@@ -18,5 +18,5 @@ colorscheme blue
 set clipboard^=unnamed,unnamedplus
 :tnoremap <Esc> <C-\><C-n>
 set termguicolors
-set scrolloff=999
+"set scrolloff=999
 
