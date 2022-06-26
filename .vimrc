@@ -8,9 +8,10 @@ set autoindent
 set tabstop=4
 set sw=4
 set sts=4
-set noexpandtab
+set expandtab
 set splitright
 set ignorecase
+set smartcase
 set incsearch
 set noswapfile
 set hlsearch
@@ -18,5 +19,5 @@ colorscheme blue
 set clipboard^=unnamed,unnamedplus
 :tnoremap <Esc> <C-\><C-n>
 set termguicolors
-set scrolloff=5
+set scrolloff=7
 
