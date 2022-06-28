@@ -1,4 +1,4 @@
-PATH=$PATH:/opt/homebrew/bin
+PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin
 alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
@@ -6,20 +6,24 @@ alias less='less -r'
 alias ls='ls --color'
 alias nvim='nvim -u ~/.vimrc'
 alias vim='nvim -u ~/.vimrc'
+alias vi='nvim -u ~/.vimrc'
+alias rsync='/opt/homebrew/Cellar/rsync/3.2.4/bin/rsync'
 
-export PROMPT='>'
+
+export PROMPT='m1>'
+export PAGER='most'
 export FPP_EDITOR="vim -p"
 export ASAN_OPTIONS=abort_on_error=1
+
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
   autoload -Uz compinit
   compinit
 fi
 
-autoload -U compinit
-compinit
+#autoload -U compinit
+#compinit
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -41,6 +45,8 @@ bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
