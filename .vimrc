@@ -7,6 +7,17 @@ let mapleader = "'"
 syntax on
 
 colorscheme blue
+hi clear CursorLine
+augroup CLClear
+    autocmd! ColorScheme * hi clear CursorLine
+augroup END
+
+hi CursorLineNR cterm=bold
+augroup CLNRSet
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
+
+set cursorline
 
 set enc=utf-8
 set number
@@ -25,3 +36,4 @@ set hlsearch
 set clipboard^=unnamed,unnamedplus
 set termguicolors
 set scrolloff=7
+
