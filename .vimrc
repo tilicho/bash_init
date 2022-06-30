@@ -1,6 +1,13 @@
 inoremap jk <ESC>
+nnoremap * *``
+:tnoremap <Esc> <C-\><C-n>
+
 let mapleader = "'"
+
 syntax on
+
+colorscheme blue
+
 set enc=utf-8
 set number
 set mouse=a
@@ -15,9 +22,6 @@ set smartcase
 set incsearch
 set noswapfile
 set hlsearch
-colorscheme blue
 set clipboard^=unnamed,unnamedplus
-:tnoremap <Esc> <C-\><C-n>
 set termguicolors
 set scrolloff=7
-
