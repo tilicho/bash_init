@@ -1,6 +1,8 @@
 inoremap jk <ESC>
 nnoremap * *``
 :tnoremap <Esc> <C-\><C-n>
+noremap <F9> :vertical botright copen 80<cr>
+noremap <F10> :copen 20<cr>
 
 let mapleader = "'"
 
