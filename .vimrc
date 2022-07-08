@@ -38,4 +38,5 @@ set hlsearch
 set clipboard^=unnamed,unnamedplus
 set termguicolors
 set scrolloff=7
+set wrapscan!
 
