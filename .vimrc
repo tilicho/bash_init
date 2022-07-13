@@ -39,4 +39,6 @@ set clipboard^=unnamed,unnamedplus
 set termguicolors
 set scrolloff=7
 set wrapscan!
+set listchars=tab:>·,trail:~,extends:>,precedes:<
+set list
 
