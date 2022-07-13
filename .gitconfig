@@ -8,7 +8,9 @@
 [status]
 	showUntrackedFiles = no
 [mergetool]
-	keepBackup = false
+    keepBackup = false
+[difftool]
+    trustExitCode = true
 [push]
 	default = current
 [alias]
@@ -18,6 +20,7 @@
     pushf = push --force-with-lease
     ss = status --short --branch
     s = status
+    d = difftool --tool=vimdiff --no-prompt 
     showfiles = diff-tree --no-commit-id --name-status -r
     ri = "!COUNT=`git cherry master | wc -l`; git rebase -i HEAD~$COUNT;"
     sq = "!f(){ COUNT=`git cherry master | wc -l`; if [ $COUNT -gt 1 ]; then git reset --soft HEAD~$(($COUNT - 1)) && git commit --amend --no-verify $*; else echo error: nothing to squash; fi }; f"
