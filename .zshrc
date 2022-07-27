@@ -8,7 +8,7 @@ alias nvim='nvim -u ~/.vimrc'
 alias vim='nvim -u ~/.vimrc'
 alias vi='nvim -u ~/.vimrc'
 alias rsync='/opt/homebrew/Cellar/rsync/3.2.4/bin/rsync'
-
+alias psaux='ps axo user:20,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm'
 
 export PROMPT='m1>'
 export PAGER='most'
