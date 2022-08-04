@@ -3,6 +3,8 @@ nnoremap * *``
 :tnoremap <Esc> <C-\><C-n>
 noremap <F9> :vertical botright copen 80<cr>
 noremap <F10> :copen 20<cr>
+noremap <F7> :cn<cr>
+noremap <F8> :cp<cr>
 
 let mapleader = "'"
 
