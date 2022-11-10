@@ -5,12 +5,22 @@ noremap <F9> :vertical botright copen 80<cr>
 noremap <F10> :copen 20<cr>
 noremap <F7> :cn<cr>
 noremap <F8> :cp<cr>
+nnoremap S "_diwP
 
-let mapleader = "'"
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+vnoremap d "_d
+nnoremap <leader>d ""d
+nnoremap <leader>D ""D
+vnoremap <leader>d ""d
+
+let mapleader = ","
+let g:mapleader = ","
 
 syntax on
 
-colorscheme blue
+colorscheme industry 
 hi clear CursorLine
 augroup CLClear
     autocmd! ColorScheme * hi clear CursorLine
