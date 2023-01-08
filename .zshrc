@@ -1,17 +1,18 @@
 PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
 alias less='less -r'
-alias ls='ls --color'
+#alias ls='ls --color'
 alias nvim='nvim -u ~/.vimrc'
 alias vim='nvim -u ~/.vimrc'
 alias vi='nvim -u ~/.vimrc'
 alias rsync='/opt/homebrew/Cellar/rsync/3.2.4/bin/rsync'
 alias psaux='ps axo user:20,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm'
 
-export PROMPT='m1>'
-export PAGER='most'
+#https://zsh-prompt-generator.site
+export PROMPT="%F{51}%n%f@%F{41}%m%f>"
 export FPP_EDITOR="vim -p"
 export ASAN_OPTIONS=abort_on_error=1
 
