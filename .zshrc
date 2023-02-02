@@ -1,4 +1,4 @@
-PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin
+PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 alias grep='grep --color=always'
 alias py=python3
@@ -18,13 +18,15 @@ export ASAN_OPTIONS=abort_on_error=1
 
 if type brew &>/dev/null
 then
+  alias far='/Applications/far2l.app/Contents/MacOS/far2l --tty -cd `pwd` -cd `pwd`'
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
   autoload -Uz compinit
   compinit
+else
+  autoload -U compinit
+  compinit
 fi
 
-#autoload -U compinit
-#compinit
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
