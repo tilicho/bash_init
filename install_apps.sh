@@ -1,4 +1,4 @@
 apt-get update
 apt-get upgrade
 apt-get install zsh tmux ncdu neovim neofetch mc ncdu python3 cmatrix hexcurse htop 
-apt-get install iperf3 
+apt-get install iperf3 silversearcher-ag 
