@@ -5,6 +5,7 @@ alias py=python3
 alias shutdown='sudo shutdown -f now'
 alias less='less -r'
 alias ls='exa'
+alias diff='nvim -d'
 alias nvim='nvim -u ~/.vimrc'
 alias vim='nvim -u ~/.vimrc'
 alias vi='nvim -u ~/.vimrc'
