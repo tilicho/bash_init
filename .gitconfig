@@ -1,18 +1,19 @@
 [core]
-	autocrlf = input
+    autocrlf = input
+    editor = vim
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [status]
-	showUntrackedFiles = no
+    showUntrackedFiles = no
 [mergetool]
     keepBackup = false
 [difftool]
     trustExitCode = true
 [push]
-	default = current
+    default = current
 [alias]
     f = fetch --prune --prune-tags --no-tags --update-head-ok origin master:master
     au = add -u
@@ -30,17 +31,17 @@
     undoall = "!git diff --no-color | git apply --reverse --whitespace=nowarn"
     amend = "!f(){ COUNT=`git cherry master | wc -l`; if [ $COUNT -ne 0 ]; then git commit --amend --no-edit $*; else echo error: no commit to append to; fi }; f"
 [color]
-	ui = true
+    ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+    meta = 11
+    frag = magenta bold
+    func = 146 bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
