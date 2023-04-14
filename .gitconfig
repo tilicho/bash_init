@@ -45,3 +45,6 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
