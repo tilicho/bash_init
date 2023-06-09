@@ -1,5 +1,3 @@
-PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
-LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
@@ -17,16 +15,6 @@ export PROMPT="%F{51}%n%f@%F{41}%m%f>"
 export FPP_EDITOR="vim -p"
 export ASAN_OPTIONS=abort_on_error=1
 
-if type brew &>/dev/null
-then
-  alias far='/Applications/far2l.app/Contents/MacOS/far2l --tty -cd `pwd` -cd `pwd`'
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  autoload -Uz compinit
-  compinit
-else
-  autoload -U compinit
-  compinit
-fi
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -53,5 +41,18 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
+  LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
+  if type brew &>/dev/null
+  then
+      alias far='/Applications/far2l.app/Contents/MacOS/far2l --tty -cd `pwd` -cd `pwd`'
+      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+      autoload -Uz compinit
+      compinit
+  else
+      autoload -U compinit
+      compinit
+  fi
   exec tmux
 fi
