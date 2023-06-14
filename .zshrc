@@ -54,5 +54,6 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
       autoload -U compinit
       compinit
   fi
+  source .env
   exec tmux
 fi
