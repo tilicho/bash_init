@@ -1,3 +1,5 @@
+let mapleader = " "
+let g:mapleader = " "
 inoremap jk <ESC>
 nnoremap * *``
 :tnoremap <Esc> <C-\><C-n>
@@ -15,15 +17,14 @@ nnoremap <leader>d ""d
 nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 
+nnoremap <leader>f :Te<enter>
+
 nnoremap <Down> gj
 nnoremap <Up> gk
 vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
-
-let mapleader = ","
-let g:mapleader = ","
 
 syntax on
 
