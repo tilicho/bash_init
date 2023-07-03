@@ -76,4 +76,12 @@ set scrolloff=7
 set wrapscan!
 set listchars=tab:>·,trail:~,extends:>,precedes:<
 set list
+set wildmenu
+set wildmode=longest:full,full
 
+try
+    source .vimrc_plug
+catch
+    " just ignore it
+    echo ".vimrc_plug source file was not found"
+endtry
