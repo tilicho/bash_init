@@ -11,7 +11,7 @@ alias rsync='/opt/homebrew/Cellar/rsync/3.2.4/bin/rsync'
 alias psaux='ps axo user:20,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm'
 
 #https://zsh-prompt-generator.site
-export PROMPT="%F{51}%n%f@%F{41}%m%f>"
+export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
 export FPP_EDITOR="vim -p"
 export ASAN_OPTIONS=abort_on_error=1
 
