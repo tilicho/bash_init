@@ -26,6 +26,7 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
+nnoremap <leader>w :set wrap!<enter>
 syntax on
 
 set quickfixtextfunc=QFTextOnly
