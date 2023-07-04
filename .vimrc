@@ -17,7 +17,7 @@ nnoremap <leader>d ""d
 nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 
-nnoremap <leader>f :Te<enter>
+"nnoremap <leader>f :Te<enter>
 
 nnoremap <Down> gj
 nnoremap <Up> gk
@@ -81,7 +81,7 @@ set wildmenu
 set wildmode=longest:full,full
 
 try
-    source .vimrc_plug
+    source ~/.vimrc_plug
 catch
     " just ignore it
     echo ".vimrc_plug source file was not found"
