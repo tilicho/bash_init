@@ -29,20 +29,22 @@ inoremap <Up> <C-o>gk
 nnoremap <leader>w :set wrap!<enter>
 syntax on
 
-set quickfixtextfunc=QFTextOnly
+if has('quickfixtextfunc')
+    set quickfixtextfunc=QFTextOnly
 
-func QFTextOnly(info) 
-    if a:info.quickfix
-        let qfl = getqflist(#{id: a:info.id, items: 0}).items
-    else
-        let qfl = getloclist(a:info.winid, #{id: a:info.id, items: 0}).items
-    endif
-    let l = []
-    for idx in range(a:info.start_idx - 1, a:info.end_idx - 1)
-        call add(l, substitute(qfl[idx].text, '^\s*','',''))
-    endfor
-    return l
-endfunc
+    func QFTextOnly(info) 
+        if a:info.quickfix
+            let qfl = getqflist(#{id: a:info.id, items: 0}).items
+        else
+            let qfl = getloclist(a:info.winid, #{id: a:info.id, items: 0}).items
+        endif
+        let l = []
+        for idx in range(a:info.start_idx - 1, a:info.end_idx - 1)
+            call add(l, substitute(qfl[idx].text, '^\s*','',''))
+        endfor
+        return l
+    endfunc
+endif
 
 colorscheme industry 
 hi clear CursorLine
