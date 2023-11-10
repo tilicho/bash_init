@@ -1,4 +1,5 @@
 #https://hidutil-generator.netlify.app 
+#plist should be placed in /Library/LaunchAgents
 hidutil property --set '{"UserKeyMapping":[]}'
 
 
