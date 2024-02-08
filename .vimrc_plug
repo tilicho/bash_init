@@ -1,11 +1,17 @@
 call plug#begin()
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'Exafunction/codeium.vim', { 'tag': '1.6.20' }
 call plug#end()
 
+let g:codeium_server_config = {
+  \'portal_url': 'https://codeium.avp.ru',
+  \'api_url': 'https://codeium.avp.ru/_route/api_server' }
 
 map <leader>f :Files<CR>
 map <leader>b :Buffers<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
+
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
