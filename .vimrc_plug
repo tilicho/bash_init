@@ -15,3 +15,6 @@ nnoremap <leader>t :Tags<CR>
 nnoremap <leader>m :Marks<CR>
 
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['right,50%,wrap', 'ctrl-/']
