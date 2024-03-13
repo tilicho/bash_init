@@ -40,7 +40,8 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#[[ ! "$TERM" =~ screen ]] - false if ssh-ed from tmux
   PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
   LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
