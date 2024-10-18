@@ -2,7 +2,7 @@ alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
 alias less='less -r'
-alias ls='exa'
+#alias ls='exa'
 alias diff='nvim -d'
 alias nvim='nvim -u ~/.vimrc'
 alias vim='nvim -u ~/.vimrc'
@@ -39,22 +39,23 @@ bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
+  
+if type brew &>/dev/null
+then
+    alias far='/Applications/far2l.app/Contents/MacOS/far2l --tty -cd `pwd` -cd `pwd`'
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+    autoload -Uz compinit
+    compinit
+else
+    autoload -U compinit
+    compinit
+fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #[[ ! "$TERM" =~ screen ]] - false if ssh-ed from tmux
   PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
   LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
-  if type brew &>/dev/null
-  then
-      alias far='/Applications/far2l.app/Contents/MacOS/far2l --tty -cd `pwd` -cd `pwd`'
-      FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-      autoload -Uz compinit
-      compinit
-  else
-      autoload -U compinit
-      compinit
-  fi
   source .env
   exec tmux
 fi
