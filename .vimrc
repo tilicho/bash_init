@@ -81,6 +81,7 @@ set listchars=tab:>·,trail:~,extends:>,precedes:<
 set list
 set wildmenu
 set wildmode=longest:full,full
+set formatoptions-=r
 
 try
     source ~/.vimrc_plug
