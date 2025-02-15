@@ -51,11 +51,16 @@ else
     compinit
 fi
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ]; then
 #[[ ! "$TERM" =~ screen ]] - false if ssh-ed from tmux
   PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
   LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
   source .env
-  exec tmux
+  if [[ ! "$TERM" =~ tmux ]]; then
+    tmux attach || tmux new
+  else 
+      exec tmux
+  fi
 fi
+
