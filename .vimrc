@@ -27,6 +27,16 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 nnoremap <leader>w :set wrap!<enter>
+
+nnoremap <Leader>c1 :highlight SpecialColor1 ctermbg=magenta guibg=purple<CR>:let m = matchadd("SpecialColor1", expand('<cword>'))<CR>
+
+nnoremap <Leader>c2 :highlight SpecialColor2 ctermbg=green guibg=green<CR>:let m = matchadd("SpecialColor2", expand('<cword>'))<CR>
+
+nnoremap <Leader>c3 :highlight SpecialColor3 ctermbg=yellow guibg=yellow<CR>:let m = matchadd("SpecialColor3", expand('<cword>'))<CR>
+
+nnoremap <Leader>c0 :call clearmatches()<CR>
+
+
 syntax on
 
 if has('quickfixtextfunc')
