@@ -1,8 +1,9 @@
 call plug#begin()
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Exafunction/codeium.vim', { 'tag': '1.6.20' }
+Plug 'nomnivore/ollama.nvim'
 Plug 'vim-scripts/LargeFile'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 map <leader>f :Files<CR>
@@ -15,3 +16,8 @@ nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = ['right,50%,wrap', 'ctrl-/']
+
+" Open NERD Tree with Ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+map <C-l> :NERDTreeFind<CR>
+let g:NERDTreeDirArrows=0

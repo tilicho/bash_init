@@ -32,7 +32,9 @@ nnoremap <Leader>c1 :highlight SpecialColor1 ctermbg=magenta guibg=purple<CR>:le
 
 nnoremap <Leader>c2 :highlight SpecialColor2 ctermbg=green guibg=green<CR>:let m = matchadd("SpecialColor2", expand('<cword>'))<CR>
 
-nnoremap <Leader>c3 :highlight SpecialColor3 ctermbg=yellow guibg=yellow<CR>:let m = matchadd("SpecialColor3", expand('<cword>'))<CR>
+nnoremap <Leader>c3 :highlight SpecialColor3 ctermbg=blue guibg=blue<CR>:let m = matchadd("SpecialColor3", expand('<cword>'))<CR>
+
+nnoremap <Leader>c4 :highlight SpecialColor4 ctermbg=brown guibg=brown<CR>:let m = matchadd("SpecialColor4", expand('<cword>'))<CR>
 
 nnoremap <Leader>c0 :call clearmatches()<CR>
 
