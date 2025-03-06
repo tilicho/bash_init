@@ -4,6 +4,7 @@ Plug 'junegunn/fzf'         " Core FZF (command-line fuzzy finder)
 Plug 'junegunn/fzf.vim'     " Vim integration for FZF
 Plug 'vim-scripts/LargeFile' " Plugin to handle large files efficiently:
 Plug 'scrooloose/nerdtree'  " NERDTree for browsing files and directories
+Plug 'RRethy/vim-illuminate' " highlight current word
 call plug#end()
 
 " -------- Key Mappings --------

@@ -139,3 +139,6 @@ catch
     " just ignore it
     echo ".vimrc_plug source file was not found"
 endtry
+
+" Set cursor hover time
+set updatetime=1000
