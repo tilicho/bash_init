@@ -1,23 +1,39 @@
+" Initialize Vim-Plug (a plugin manager)
 call plug#begin()
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'nomnivore/ollama.nvim'
-Plug 'vim-scripts/LargeFile'
-Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf'         " Core FZF (command-line fuzzy finder)
+Plug 'junegunn/fzf.vim'     " Vim integration for FZF
+Plug 'vim-scripts/LargeFile' " Plugin to handle large files efficiently:
+Plug 'scrooloose/nerdtree'  " NERDTree for browsing files and directories
 call plug#end()
 
-map <leader>f :Files<CR>
-map <leader>b :Buffers<CR>
-nnoremap <leader>g :Rg<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>m :Marks<CR>
+" -------- Key Mappings --------
 
+map <leader>f :Files<CR>   " Search for files in the current directory
+map <leader>b :Buffers<CR> " Search and switch between open buffers
+nnoremap <leader>g :Rg<CR> " Search for text using Ripgrep (requires `rg` installed)
+nnoremap <leader>t :Tags<CR> " Search for tags (useful for code navigation)
+nnoremap <leader>m :Marks<CR> " Show and navigate marks (saved cursor positions)
+
+" Search the word under cursor using Ag (another fast text search tool)
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 
-let g:fzf_vim = {}
-let g:fzf_vim.preview_window = ['right,50%,wrap', 'ctrl-/']
+" -------- FZF Configuration --------
 
-" Open NERD Tree with Ctrl-n
+let g:fzf_vim = {}  " Initialize an empty dictionary for FZF settings
+let g:fzf_vim.preview_window = ['right,50%,wrap', 'ctrl-/']  
+" Configure FZF preview:
+" - Show preview on the right side
+" - Use 50% of the window width
+" - Wrap long lines in the preview
+" - Use 'Ctrl-/' to toggle preview visibility
+
+" -------- NERDTree Configuration --------
+
+" Open/close NERDTree with Ctrl-n
 map <C-n> :NERDTreeToggle<CR>
+
+" Find the current file in NERDTree with Ctrl-l
 map <C-l> :NERDTreeFind<CR>
+
+" Disable arrows in the NERDTree UI (for a cleaner look)
 let g:NERDTreeDirArrows=0
