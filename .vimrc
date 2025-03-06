@@ -89,9 +89,9 @@ augroup CLNRSet
     autocmd! ColorScheme * hi CursorLineNR cterm=bold
 augroup END
 
-set cursorline  " Highlight the cursor line
-
 " General settings:
+set cursorline  " Highlight the cursor line
+set nocompatible " Disable compatibility with Vi (needed for modern Vim features)
 set enc=utf-8          " Set encoding to UTF-8
 set number             " Show line numbers
 set mouse=a            " Enable mouse support
@@ -110,12 +110,27 @@ set clipboard^=unnamed,unnamedplus  " Use system clipboard
 set termguicolors      " Enable true color support
 set scrolloff=7        " Keep at least 7 lines visible above/below cursor
 set wrapscan!          " Disable wrap-around for searches
-set listchars=tab:>·,trail:~,extends:>,precedes:<  " Show hidden characters
+set listchars=tab:🡒\ ,trail:·,nbsp:␣,extends:⟩,precedes:⟨ " Show hidden characters
 set list               " Show invisible characters
 set wildmenu           " Enable command-line autocompletion menu
 set wildmode=longest:full,full  " Improve command-line tab completion
 set formatoptions-=r   " Disable auto-comment continuation
 set autoread
+set backspace=2    " Allow backspacing over everything in insert mode
+
+" Reload files if changed outside Vim
+set autoread
+au CursorHold,CursorHoldI * checktime
+set backspace=2    " Allow backspacing over everything in insert mode
+
+" Highlight trailing spaces in red
+autocmd VimEnter * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd WinEnter * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufRead  * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd Syntax   * syntax match ExtraWhitespace excludenl /\s\+$/ display containedin=ALL
+
+" Enable system clipboard integration
+vnoremap Y "+y
 
 " Try sourcing an additional config file, if it exists
 try
