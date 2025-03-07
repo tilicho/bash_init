@@ -117,6 +117,8 @@ set wildmode=longest:full,full  " Improve command-line tab completion
 set formatoptions-=r   " Disable auto-comment continuation
 set autoread
 set backspace=2    " Allow backspacing over everything in insert mode
+" Improve performance
+set lazyredraw
 
 " Reload files if changed outside Vim
 set autoread
