@@ -38,3 +38,5 @@ map <C-l> :NERDTreeFind<CR>
 
 " Disable arrows in the NERDTree UI (for a cleaner look)
 let g:NERDTreeDirArrows=0
+
+hi illuminatedWord cterm=underline gui=underline 
