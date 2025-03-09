@@ -15,7 +15,14 @@ alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status
 
 alias tmuxon='tmux set -u prefix && tmux set -u key-table && tmux set -u status-style && tmux set -u window-status-current-style && tmux refresh-client -S'
 
-alias ssht='TERM=screen-256color && tmuxoff && ssh'
+myssh() {
+    TERM=screen-256color
+    tmuxoff
+    ssh "$@"
+    tmuxon
+}
+
+alias ssh=myssh
 
 #https://zsh-prompt-generator.site
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
