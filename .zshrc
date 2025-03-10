@@ -16,6 +16,14 @@ alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status
 alias tmuxon='tmux set -u prefix && tmux set -u key-table && tmux set -u status-style && tmux set -u window-status-current-style && tmux refresh-client -S'
 
 myssh() {
+    function ctrl_c_handle()
+    {
+        echo "ctrl c happened"
+        return 130
+    }
+
+    trap ctrl_c_handle INT
+
     TERM=screen-256color
     tmuxoff
     ssh "$@"
