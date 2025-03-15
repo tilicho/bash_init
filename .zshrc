@@ -32,6 +32,17 @@ myssh() {
 
 alias ssh=myssh
 
+move_and_alias() {
+    if [[ -d "$1" && -d "$2" ]]; then
+        mv "$1" "$2" && ln -s "$2/$(basename "$1")" "$(dirname "$1")"
+        echo "Moved '$1' to '$2' and created alias."
+    else
+        echo "Error: Invalid folder paths."
+    fi
+}
+
+alias mvln=move_and_alias
+
 #https://zsh-prompt-generator.site
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
 export FPP_EDITOR="vim -p"
