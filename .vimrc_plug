@@ -16,7 +16,7 @@ nnoremap <leader>t :Tags<CR> " Search for tags (useful for code navigation)
 nnoremap <leader>m :Marks<CR> " Show and navigate marks (saved cursor positions)
 
 " Search the word under cursor using Ag (another fast text search tool)
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
 
 " -------- FZF Configuration --------
 

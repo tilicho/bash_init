@@ -12,10 +12,11 @@ nnoremap * *``
 :tnoremap <Esc> <C-\><C-n>
 
 " Quickfix window mappings:
-noremap <F9> :vertical botright copen 80<cr>  " Open quickfix in a vertical split
-noremap <F10> :copen 20<cr>                   " Open quickfix window with height 20
+" noremap <F9> :vertical botright copen 80<cr>  " Open quickfix in a vertical split
+noremap <F9> :copen 20<cr>                   " Open quickfix window with height 20
 noremap <F7> :cn<cr>                          " Jump to next quickfix item
 noremap <F8> :cp<cr>                          " Jump to previous quickfix item
+nnoremap <Leader>v :vimgrep /<C-R><C-W>/g % \| copen 20<CR>
 
 " 'Smart' replace:
 nnoremap S "_diwP  " Delete a word and paste without overwriting the default register
