@@ -78,11 +78,14 @@ then
     alias far='/Applications/far2l.app/Contents/MacOS/far2l --tty -cd `pwd` -cd `pwd`'
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
     autoload -Uz compinit
-    compinit
 else
     autoload -U compinit
-    compinit
 fi
+
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #[[ ! "$TERM" =~ screen ]] - false if ssh-ed from tmux
