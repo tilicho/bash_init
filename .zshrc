@@ -47,6 +47,7 @@ alias mvln=move_and_alias
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
 export FPP_EDITOR="vim -p"
 export ASAN_OPTIONS=abort_on_error=1
+export EDITOR="nvim"
 
 
 HISTFILE="$HOME/.zsh_history"
@@ -68,6 +69,10 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 
 #vi mode (esc, i)
 bindkey -v
+
+# edit line in vim with ctrl+e
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
