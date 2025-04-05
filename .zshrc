@@ -67,8 +67,34 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 
+export KEYTIMEOUT=1
 #vi mode (esc, i)
 bindkey -v
+
+cursor_insert_='\e[2 q'
+cursor_normal='\e[6 q'
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne $cursor_insert_
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne $cursor_normal
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne $cursor_normal
+}
+
+zle -N zle-line-init
+echo -ne $cursor_normal # Use beam shape cursor on startup.
+preexec() { echo -ne $cursor_normal ;} # Use beam shape cursor for each new prompt.
 
 # edit line in vim with ctrl+e
 autoload edit-command-line; zle -N edit-command-line
