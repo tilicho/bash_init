@@ -17,11 +17,11 @@ alias tmuxon='tmux set -u prefix && tmux set -u key-table && tmux set -u status-
 
 #fast keyboard key repeat
 set x rate 300 50
-
+ssh_o=`which ssh`
 myssh() {
     TERM=screen-256color
     tmuxoff
-    ssh "$@"
+    $ssh_o "$@"
     tmuxon
 }
 
