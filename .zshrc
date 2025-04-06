@@ -15,6 +15,9 @@ alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status
 
 alias tmuxon='tmux set -u prefix && tmux set -u key-table && tmux set -u status-style && tmux set -u window-status-current-style && tmux refresh-client -S'
 
+#fast keyboard key repeat
+set x rate 300 50
+
 myssh() {
     TERM=screen-256color
     tmuxoff
