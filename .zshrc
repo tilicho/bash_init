@@ -16,14 +16,6 @@ alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status
 alias tmuxon='tmux set -u prefix && tmux set -u key-table && tmux set -u status-style && tmux set -u window-status-current-style && tmux refresh-client -S'
 
 myssh() {
-#    function ctrl_c_handle()
-#    {
-#        echo "ctrl c happened"
-#        return 130
-#    }
-#
-#    trap ctrl_c_handle INT
-
     TERM=screen-256color
     tmuxoff
     ssh "$@"
@@ -95,6 +87,15 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne $cursor_normal # Use beam shape cursor on startup.
 preexec() { echo -ne $cursor_normal ;} # Use beam shape cursor for each new prompt.
+
+#use lf to switch directory to last visited in lf
+lfcd() {
+    dir="$(lf -print-last-dir)"
+    echo $dir
+    cd $dir
+}
+bindkey -s '^o' 'lfcd\n'
+
 
 # edit line in vim with ctrl+e
 autoload edit-command-line; zle -N edit-command-line
