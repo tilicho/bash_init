@@ -13,9 +13,11 @@ nnoremap * *``
 
 " Quickfix window mappings:
 " noremap <F9> :vertical botright copen 80<cr>  " Open quickfix in a vertical split
-noremap <F9> :copen 20<cr>                   " Open quickfix window with height 20
-noremap <F7> :cn<cr>                          " Jump to next quickfix item
-noremap <F8> :cp<cr>                          " Jump to previous quickfix item
+" Open quickfix window with height 20
+noremap <F9> :copen 20<cr>
+" Jump to next quickfix item
+noremap <F7> :cn<cr>
+" Jump to previous quickfix item
 nnoremap <Leader>v :vimgrep /<C-R><C-W>/g % \| copen 20<CR>
 
 " 'Smart' replace:
@@ -136,12 +138,7 @@ autocmd Syntax   * syntax match ExtraWhitespace excludenl /\s\+$/ display contai
 vnoremap Y "+y
 
 " Try sourcing an additional config file, if it exists
-try
-    source ~/.vimrc_plug
-catch
-    " just ignore it
-    echo ".vimrc_plug source file was not found"
-endtry
+source ~/.vimrc_plug
 
 " Set cursor hover time
 set updatetime=1000

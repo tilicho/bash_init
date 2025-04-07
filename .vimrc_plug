@@ -9,11 +9,17 @@ call plug#end()
 
 " -------- Key Mappings --------
 
-map <leader>f :Files<CR>   " Search for files in the current directory
-map <leader>b :Buffers<CR> " Search and switch between open buffers
-nnoremap <leader>g :Rg<CR> " Search for text using Ripgrep (requires `rg` installed)
-nnoremap <leader>t :Tags<CR> " Search for tags (useful for code navigation)
-nnoremap <leader>m :Marks<CR> " Show and navigate marks (saved cursor positions)
+" -------- Key Mappings --------
+" Search for files in the current directory
+map <leader>f :Files<CR>
+" Search and switch between open buffers
+map <leader>b :Buffers<CR>
+" Search for text using Ripgrep (requires `rg` installed)
+nnoremap <leader>g :Rg<CR>
+" Search for tags (useful for code navigation)
+nnoremap <leader>t :Tags<CR>
+" Show and navigate marks (saved cursor positions)
+nnoremap <leader>m :Marks<CR>
 
 " Search the word under cursor using Ag (another fast text search tool)
 nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
