@@ -13,10 +13,8 @@ call plug#end()
 map <leader>f :Files<CR>
 " Search and switch between open buffers
 map <leader>b :Buffers<CR>
-" Search for text using Ripgrep (requires `rg` installed)
-nnoremap <leader>g :Rg<CR>
 " Search for tags (useful for code navigation)
-nnoremap <leader>t :Tags<CR>
+" nnoremap <leader>t :Tags<CR>
 " Show and navigate marks (saved cursor positions)
 nnoremap <leader>m :Marks<CR>
 
@@ -44,4 +42,3 @@ map <C-l> :NERDTreeFind<CR>
 " Disable arrows in the NERDTree UI (for a cleaner look)
 let g:NERDTreeDirArrows=0
 
-hi illuminatedWord cterm=underline gui=underline 

@@ -59,10 +59,14 @@ nnoremap <Leader>c4 :highlight SpecialColor4 ctermbg=brown guibg=brown<CR>:let m
 
 nnoremap <Leader>c0 :call clearmatches()<CR>
 
+#template for %s//gI
+nnoremap <Leader>s :%s//gI<Left><Left><Left>
+
 " Enable syntax highlighting
 syntax on
 
 " Custom function for quickfix text display (removes leading whitespace)
+
 if has('quickfixtextfunc')
     set quickfixtextfunc=QFTextOnly
 
@@ -113,11 +117,12 @@ set clipboard^=unnamed,unnamedplus  " Use system clipboard
 set termguicolors      " Enable true color support
 set scrolloff=7        " Keep at least 7 lines visible above/below cursor
 set wrapscan!          " Disable wrap-around for searches
-set listchars=tab:🡒\ ,trail:·,nbsp:␣,extends:⟩,precedes:⟨ " Show hidden characters
+set listchars=tab:\|_,trail:·,nbsp:+,extends:⟩,precedes:⟨ " Show hidden characters
 set list               " Show invisible characters
 set wildmenu           " Enable command-line autocompletion menu
 set wildmode=longest:full,full  " Improve command-line tab completion
-set formatoptions-=r   " Disable auto-comment continuation
+"set formatoptions-=r   " Disable auto-comment continuation
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set autoread
 set backspace=2    " Allow backspacing over everything in insert mode
 " Improve performance
