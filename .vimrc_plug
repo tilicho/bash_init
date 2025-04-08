@@ -19,7 +19,8 @@ map <leader>b :Buffers<CR>
 nnoremap <leader>m :Marks<CR>
 
 " Search the word under cursor using Ag (another fast text search tool)
-nnoremap <silent> <Leader>a :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>A :Ag <C-R><C-W><CR>
+nnoremap <Leader>a :Ag 
 
 " -------- FZF Configuration --------
 

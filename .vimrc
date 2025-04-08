@@ -59,7 +59,7 @@ nnoremap <Leader>c4 :highlight SpecialColor4 ctermbg=brown guibg=brown<CR>:let m
 
 nnoremap <Leader>c0 :call clearmatches()<CR>
 
-#template for %s//gI
+" template for %s//gI
 nnoremap <Leader>s :%s//gI<Left><Left><Left>
 
 " Enable syntax highlighting
