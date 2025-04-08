@@ -30,12 +30,19 @@ nnoremap D "_D
 vnoremap d "_d
 
 " Improved movement for wrapped lines:
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
-inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
+"nnoremap <Down> gj
+"nnoremap <Up> gk
+"vnoremap <Down> gj
+"vnoremap <Up> gk
+"inoremap <Down> <C-o>gj
+"inoremap <Up> <C-o>gk
+
+nnoremap <C-j> gj
+nnoremap <C-k> gk
+vnoremap <C-k> gj
+vnoremap <C-k> gk
+inoremap <C-j> <C-o>gj
+inoremap <C-k> <C-o>gk
 
 " Explicitly delete into the default register with <leader>d/D
 nnoremap <leader>d ""d
@@ -116,7 +123,7 @@ set noswapfile         " Disable swap files
 set hlsearch           " Highlight search results
 set clipboard^=unnamed,unnamedplus  " Use system clipboard
 set termguicolors      " Enable true color support
-set scrolloff=7        " Keep at least 7 lines visible above/below cursor
+"set scrolloff=7        " Keep at least 7 lines visible above/below cursor
 set wrapscan!          " Disable wrap-around for searches
 set listchars=tab:\|_,trail:·,nbsp:+,extends:⟩,precedes:⟨ " Show hidden characters
 set list               " Show invisible characters
