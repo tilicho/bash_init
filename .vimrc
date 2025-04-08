@@ -100,6 +100,7 @@ augroup END
 set cursorline  " Highlight the cursor line
 set nocompatible " Disable compatibility with Vi (needed for modern Vim features)
 set enc=utf-8          " Set encoding to UTF-8
+set relativenumber     " Show relative line numbers
 set number             " Show line numbers
 set mouse=a            " Enable mouse support
 set autoindent         " Auto-indent new lines
