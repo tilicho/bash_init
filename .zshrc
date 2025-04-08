@@ -97,7 +97,8 @@ lfcd() {
     echo $dir
     cd $dir
 }
-bindkey -s '^o' 'lfcd\n'
+zle -N lfcd
+bindkey '^o' lfcd
 
 
 # edit line in vim with ctrl+e
