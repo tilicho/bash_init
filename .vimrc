@@ -29,6 +29,10 @@ nnoremap d "_d
 nnoremap D "_D
 vnoremap d "_d
 
+" Center searches in the middle of the screen
+nmap  n nzz
+nmap  N Nzz
+
 " Improved movement for wrapped lines:
 "nnoremap <Down> gj
 "nnoremap <Up> gk
