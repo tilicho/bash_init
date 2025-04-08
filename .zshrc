@@ -106,11 +106,13 @@ bindkey '^e' edit-command-line
 
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
-  
+
+bindkey "^j" history-beginning-search-backward
+bindkey "^k" history-beginning-search-forward
+
+bindkey '^h' backward-word
+bindkey '^l' forward-word
+
 if type brew &>/dev/null
 then
     alias far='/Applications/far2l.app/Contents/MacOS/far2l --tty -cd `pwd` -cd `pwd`'
