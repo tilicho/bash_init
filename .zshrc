@@ -42,6 +42,7 @@ alias mvln=move_and_alias
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
 export FPP_EDITOR="vim -p"
 export ASAN_OPTIONS=abort_on_error=1
+export TSAN_OPTIONS=verbosity=1:halt_on_error=1
 export EDITOR="nvim"
 
 
