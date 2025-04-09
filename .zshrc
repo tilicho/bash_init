@@ -107,6 +107,8 @@ bindkey '^e' edit-command-line
 
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 bindkey "^j" history-beginning-search-backward
 bindkey "^k" history-beginning-search-forward
