@@ -115,6 +115,9 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey "^j" history-beginning-search-backward
 bindkey "^k" history-beginning-search-forward
 
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
 bindkey '^h' backward-word
 bindkey '^l' forward-word
 
