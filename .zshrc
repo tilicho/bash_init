@@ -97,6 +97,7 @@ lfcd() {
     dir="$(lf -print-last-dir)"
     echo $dir
     cd $dir
+    zle reset-prompt
 }
 zle -N lfcd
 bindkey '^o' lfcd
