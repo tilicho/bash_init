@@ -141,6 +141,8 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [
   PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
   LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
-  source .env
+  if [ -e ~/.env ]; then
+      source ~/.env
+  fi
   exec tmux
 fi
