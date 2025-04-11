@@ -45,6 +45,14 @@
     old = red bold
     new = green bold
     whitespace = red reverse
-[remote "origin"]
-	fetch = +refs/heads/*:refs/remotes/origin/*
 
+[remote "origin"]
+  tagopt = --tags
+  # modified this line:
+  fetch = +refs/archive/*:refs/archive/*
+  push = +refs/archive/*:refs/archive/*
+[user]
+    name = tilicho
+    email = tilicho@mail.com
+[credential]
+    helper = osxkeychain
