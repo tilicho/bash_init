@@ -10,6 +10,7 @@ alias vi='nvim -u ~/.vimrc'
 alias rsync='/opt/homebrew/Cellar/rsync/3.2.4/bin/rsync'
 alias psaux='ps axo user:20,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm'
 alias wgetc='wget -c --progress=bar '
+alias mm='macmon'
 
 alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status-style "fg=colour245,bg=colour238" && tmux set window-status-current-style "fg=colour232,bold,bg=colour254" && tmux refresh-client -S'
 
