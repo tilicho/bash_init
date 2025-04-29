@@ -108,6 +108,16 @@ bindkey '^o' lfcd
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+
+function view_tmux_pane_in_vim() {
+  BUFFER=""
+  zle reset-prompt
+  tmux capture-pane -p | vim -
+}
+
+zle -N view_tmux_pane_in_vim
+bindkey '^r' view_tmux_pane_in_vim
+
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
 bindkey "^[[A" history-beginning-search-backward
