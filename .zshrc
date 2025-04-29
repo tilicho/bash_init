@@ -112,7 +112,7 @@ bindkey '^e' edit-command-line
 function view_tmux_pane_in_vim() {
   BUFFER=""
   zle reset-prompt
-  tmux capture-pane -p | vim -
+  tmux capture-pane -p | vim + -
 }
 
 zle -N view_tmux_pane_in_vim
