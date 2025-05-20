@@ -40,13 +40,15 @@ move_and_alias() {
 alias mvln=move_and_alias
 
 run_chatgpt() {
-    source ~/python/python_env/bin/activate
-    python3 ~/github/ml_scripts/llama.cpp/chat.py $@
+    source ~/llama/activate
+    python3 ~/llama/chat.py $@
+    deactivate
 }
 
 run_chatgpt_glow() {
-    source ~/python/python_env/bin/activate
-    python3 ~/github/ml_scripts/llama.cpp/chat.py $@ | glow
+    source ~/llama/activate
+    python3 ~/llama/chat.py $@ | glow
+    deactivate
 }
 
 alias ai=run_chatgpt
