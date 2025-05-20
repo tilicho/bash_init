@@ -39,6 +39,19 @@ move_and_alias() {
 
 alias mvln=move_and_alias
 
+run_chatgpt() {
+    source ~/python/python_env/bin/activate
+    python3 ~/github/ml_scripts/llama.cpp/chat.py $@
+}
+
+run_chatgpt_glow() {
+    source ~/python/python_env/bin/activate
+    python3 ~/github/ml_scripts/llama.cpp/chat.py $@ | glow
+}
+
+alias ai=run_chatgpt
+alias aic=run_chatgpt_glow
+
 #https://zsh-prompt-generator.site
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
 export FPP_EDITOR="vim -p"
