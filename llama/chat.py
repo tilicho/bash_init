@@ -14,6 +14,8 @@ verbose = len(os.getenv('OPENAI_VERBOSE', "")) > 0
 api_key = os.getenv('OPENAI_API_KEY', "42")
 
 prompt = sys.argv[1]
+if prompt == "-t":
+    prompt = sys.stdin.read()
 
 def trim_suffix(s, suffix):
     if s.endswith(suffix):
