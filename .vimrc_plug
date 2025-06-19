@@ -29,7 +29,8 @@ let g:fzf_vim.preview_window = ['right,50%,wrap', 'ctrl-/']
 nnoremap <Leader>l :call plug#load('llama.vim')<CR>
 
 "'auto_fim': v:false,
-let g:llama_config = {'endpoint': 'https://armbian2.local/llm/upstream/FIM_qwen25_coder_7b_q8_0/infill', 'keymap_trigger': '<C-F>'}
+"let g:llama_config = {'endpoint': 'http://127.0.0.1/llm/upstream/FIM_qwen25_coder_7b_q8_0/infill', 'keymap_trigger': '<C-F>'}
+let g:llama_config = {'endpoint': expand('$FIM_VIM_MODEL'), 'keymap_trigger': '<C-F>'}
 
 " Configure FZF preview:
 " - Show preview on the right side
