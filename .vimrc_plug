@@ -1,11 +1,10 @@
 " Initialize Vim-Plug (a plugin manager)
+
 call plug#begin()
 Plug 'junegunn/fzf'         " Core FZF (command-line fuzzy finder)
 Plug 'junegunn/fzf.vim'     " Vim integration for FZF
-Plug 'vim-scripts/LargeFile' " Plugin to handle large files efficiently:
-Plug 'scrooloose/nerdtree'  " NERDTree for browsing files and directories
+Plug 'ggml-org/llama.vim', {'on':[]} " <- Lazy-load plugin manually
 call plug#end()
-
 " -------- Key Mappings --------
 
 " -------- Key Mappings --------
@@ -25,7 +24,13 @@ nnoremap <Leader>a :Ag
 " -------- FZF Configuration --------
 
 let g:fzf_vim = {}  " Initialize an empty dictionary for FZF settings
-let g:fzf_vim.preview_window = ['right,50%,wrap', 'ctrl-/']  
+let g:fzf_vim.preview_window = ['right,50%,wrap', 'ctrl-/']
+
+nnoremap <Leader>l :call plug#load('llama.vim')<CR>
+
+"'auto_fim': v:false,
+let g:llama_config = {'endpoint': 'https://armbian2.local/llm/upstream/FIM_qwen25_coder_7b_q8_0/infill', 'keymap_trigger': '<C-F>'}
+
 " Configure FZF preview:
 " - Show preview on the right side
 " - Use 50% of the window width
