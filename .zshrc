@@ -118,6 +118,12 @@ lfcd() {
 zle -N lfcd
 bindkey '^o' lfcd
 
+function vifm-widget() {
+  BUFFER="vifm"
+  zle accept-line
+}
+zle -N vifm-widget
+bindkey '^o' vifm-widget
 
 # edit line in vim with ctrl+e
 autoload edit-command-line; zle -N edit-command-line
