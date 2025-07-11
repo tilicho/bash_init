@@ -7,10 +7,10 @@ alias diff='nvim -d'
 alias nvim='nvim -u ~/.vimrc'
 alias vim='nvim -u ~/.vimrc'
 alias vi='nvim -u ~/.vimrc'
-#alias rsync='/opt/homebrew/Cellar/rsync/3.2.4/bin/rsync'
 alias psaux='ps axo user:20,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,comm'
 alias wgetc='wget -c --progress=bar '
 alias mm='macmon'
+alias vf='vifm'
 
 alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status-style "fg=colour245,bg=colour238" && tmux set window-status-current-style "fg=colour232,bold,bg=colour254" && tmux refresh-client -S'
 
@@ -61,7 +61,8 @@ exit_shell_widget() {
 zle -N exit_shell_widget
 
 # Bind Ctrl+Q to the exit widget
-bindkey '^W' exit_shell_widget
+bindkey '^t' exit_shell_widget
+
 
 #https://zsh-prompt-generator.site
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
@@ -125,7 +126,7 @@ lfcd() {
     zle reset-prompt
 }
 zle -N lfcd
-bindkey '^o' lfcd
+bindkey '^n' lfcd
 
 function vifm-widget() {
   BUFFER="vifm"
@@ -192,3 +193,8 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [
   LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
   exec tmux
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/ser/.lmstudio/bin"
+# End of LM Studio CLI section
+

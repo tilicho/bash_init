@@ -41,7 +41,7 @@ function! ToggleTerminal()
   endif
 endfunction
 
-nnoremap <C-t> :call ToggleTerminal()<CR>
+nnoremap s :call ToggleTerminal()<CR>
 tnoremap <C-t> <C-\><C-n>:q<CR>
 
 " 'Smart' replace:
