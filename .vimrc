@@ -42,7 +42,7 @@ function! ToggleTerminal()
 endfunction
 
 nnoremap s :call ToggleTerminal()<CR>
-tnoremap <C-t> <C-\><C-n>:q<CR>
+tnoremap <C-s> <C-\><C-n>:q<CR>
 
 " 'Smart' replace:
 nnoremap S "_diwP  " Delete a word and paste without overwriting the default register

@@ -60,8 +60,7 @@ exit_shell_widget() {
 }
 zle -N exit_shell_widget
 
-# Bind Ctrl+Q to the exit widget
-bindkey '^t' exit_shell_widget
+bindkey '^w' exit_shell_widget
 
 
 #https://zsh-prompt-generator.site
