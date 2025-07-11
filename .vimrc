@@ -20,6 +20,30 @@ noremap <F7> :cn<cr>
 " Jump to previous quickfix item
 nnoremap <Leader>v :vimgrep /<C-R><C-W>/g % \| copen 20<CR>
 
+let g:terminal_bufnr = -1
+
+function! ToggleTerminal()
+  " If terminal buffer exists and is visible
+  if bufexists(g:terminal_bufnr) && bufwinnr(g:terminal_bufnr) != -1
+    " Focus terminal window
+    exec bufwinnr(g:terminal_bufnr) . 'wincmd w'
+  else
+    " If terminal buffer exists, show it
+    if bufexists(g:terminal_bufnr)
+      exec 'split | buffer ' . g:terminal_bufnr
+      startinsert
+    else
+      " Create new terminal and store its buffer number
+      split term://$SHELL
+      let g:terminal_bufnr = bufnr('%')
+      startinsert
+    endif
+  endif
+endfunction
+
+nnoremap <C-t> :call ToggleTerminal()<CR>
+tnoremap <C-t> <C-\><C-n>:q<CR>
+
 " 'Smart' replace:
 nnoremap S "_diwP  " Delete a word and paste without overwriting the default register
 
