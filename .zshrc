@@ -54,6 +54,15 @@ run_chatgpt_glow() {
 alias ai=run_chatgpt
 alias aic=run_chatgpt_glow
 
+# Define exit command as ZLE widget
+exit_shell_widget() {
+  exit
+}
+zle -N exit_shell_widget
+
+# Bind Ctrl+Q to the exit widget
+bindkey '^W' exit_shell_widget
+
 #https://zsh-prompt-generator.site
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
 export FPP_EDITOR="vim -p"
