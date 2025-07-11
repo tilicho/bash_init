@@ -30,11 +30,11 @@ function! ToggleTerminal()
   else
     " If terminal buffer exists, show it
     if bufexists(g:terminal_bufnr)
-      exec 'split | buffer ' . g:terminal_bufnr
+      exec 'vsplit | buffer ' . g:terminal_bufnr
       startinsert
     else
       " Create new terminal and store its buffer number
-      split term://$SHELL
+      vsplit term://$SHELL
       let g:terminal_bufnr = bufnr('%')
       startinsert
     endif
