@@ -2,6 +2,8 @@ set vicmd="nvim -u ~/.vimrc"
 " Start shell in current directory
 nnoremap s :shell<cr>
 
+nnoremap <C-d> :delete!<CR>
+
 " Display sorting dialog
 nnoremap S :sort<cr>
 
@@ -24,5 +26,7 @@ nnoremap <f5> :copy<cr>
 nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
+
+nnoremap <C-t> :q<CR>
 
 
