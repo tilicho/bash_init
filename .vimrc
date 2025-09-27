@@ -79,6 +79,8 @@ vnoremap <leader>d ""d
 
 " (Commented out) Map <leader>r to open a terminal in a split
 nnoremap <leader>r :Te<enter>
+nnoremap <leader>p :vsplit \| wincmd l<CR>
+nnoremap <leader>q :q<CR>
 
 " Toggle line wrapping with <leader>w
 nnoremap <leader>w :set wrap!<enter>
