@@ -78,7 +78,7 @@ nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 
 " (Commented out) Map <leader>r to open a terminal in a split
-nnoremap <leader>r :Te<enter>
+nnoremap <leader>t :Te<enter>
 nnoremap <leader>p :vsplit \| wincmd l<CR>
 nnoremap <leader>P <C-w>w:q<CR>
 nnoremap <leader>q :q<CR>
