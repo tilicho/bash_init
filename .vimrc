@@ -80,10 +80,11 @@ vnoremap <leader>d ""d
 " (Commented out) Map <leader>r to open a terminal in a split
 nnoremap <leader>r :Te<enter>
 nnoremap <leader>p :vsplit \| wincmd l<CR>
+nnoremap <leader>P <C-w>w:q<CR>
 nnoremap <leader>q :q<CR>
 
 " Toggle line wrapping with <leader>w
-nnoremap <leader>w :set wrap!<enter>
+nnoremap <leader>w <C-w>w
 
 " Highlight words with different colors using <leader>c1 - <leader>c4
 nnoremap <Leader>c1 :highlight SpecialColor1 ctermbg=magenta guibg=purple<CR>:let m = matchadd("SpecialColor1", expand('<cword>'))<CR>
