@@ -119,8 +119,9 @@ completion = client.chat.completions.create(
 
 
 for event in completion:
-    content = event.choices[0].delta.content
-    if content:
-        print(content, end="", flush=True)
+    if (len(event.choices)):
+        content = event.choices[0].delta.content
+        if content:
+            print(content, end="", flush=True)
 
 #print(completion.choices[0].message.content)
