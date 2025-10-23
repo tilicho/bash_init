@@ -10,6 +10,10 @@ nnoremap * *``
 
 " Terminal mode: Map <Esc> to exit terminal mode
 :tnoremap <Esc> <C-\><C-n>
+:tnoremap <F1> <C-\><C-n>
+
+" Search for error: in terminal mode
+:tnoremap <silent> <Leader><F1> <C-\><C-n>?\Cerror\:<CR>
 
 " Quickfix window mappings:
 " noremap <F9> :vertical botright copen 80<cr>  " Open quickfix in a vertical split
