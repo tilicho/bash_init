@@ -6,3 +6,4 @@ brew install exa rename coreutils fzf tldr
 brew install sysbench macmon uv lf
 brew install ffmpeg glow virtualenv
 brew install lnav vimfm
+brew install bat jq yq fd ripgrep
