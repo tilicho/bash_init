@@ -1,7 +1,15 @@
+#!/bin/sh
 apt-get update
 apt-get upgrade
-apt-get install -y zsh tmux ncdu neovim neofetch mc ncdu python3 cmatrix hexcurse htop
-apt-get install -y iperf3 silversearcher-ag
-apt-get install -y exa rename coreutils fzf tldr lf
-apt-get install -y sysbench avahi-daemon avahi-utils w3m
-apt-get install -y lnav vimfm
+
+
+PACKAGES="git zsh tmux ncdu neovim neofetch mc ncdu python3 cmatrix hexcurse htop iperf3 silversearcher-ag exa rename coreutils fzf tldr lf sysbench avahi-daemon avahi-utils w3m lnav vimfm curl wget lynx"
+
+for pkg in $PACKAGES; do
+  echo "Installing $pkg..."
+  if apt install -y "$pkg"; then
+    echo "Success: $pkg"
+  else
+    echo "Failed: $pkg"
+  fi
+done

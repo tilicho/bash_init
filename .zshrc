@@ -16,6 +16,29 @@ alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status
 
 alias tmuxon='tmux set -u prefix && tmux set -u key-table && tmux set -u status-style && tmux set -u window-status-current-style && tmux refresh-client -S'
 
+alias gs='git s'
+alias gl='git log'
+alias gpom='git pull origin main'
+alias gpoma='git pull origin master'
+alias gpuom='git push -u origin main'
+alias gpuoma='git push -u origin master'
+alias gcm='git commit -m '
+alias gca='git commit --amend '
+alias gau='git add -u'
+alias ga='git add'
+alias gr='git restore'
+alias grs='git restore --staged '
+alias gds='git diff --staged '
+alias gd='git diff'
+
+alias cdh='cd ~'
+
+alias scsts='systemctl status'
+alias sce='systemctl enable'
+alias scr='systemctl restart'
+alias scd='systemctl disable'
+alias scstp='systemctl stop'
+
 #fast keyboard key repeat
 set x rate 300 50
 ssh_o=`which ssh`
