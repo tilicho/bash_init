@@ -38,6 +38,7 @@ alias sce='systemctl enable'
 alias scr='systemctl restart'
 alias scd='systemctl disable'
 alias scstp='systemctl stop'
+alias scdr='systemctl daemon-reload'
 
 #fast keyboard key repeat
 set x rate 300 50
