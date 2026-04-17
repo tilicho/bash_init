@@ -214,7 +214,12 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [
 #[[ ! "$TERM" =~ screen ]] - false if ssh-ed from tmux
   PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
   LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
-  exec tmux
+    if [[ -o interactive ]] \
+      && [[ -z "$VSCODE_IPC_HOOK" ]] \
+      && [[ -z "$VSCODE_PID" ]] \
+      && [[ "$TERM_PROGRAM" != "vscode" ]]; then
+      exec tmux
+    fi
 fi
 
 # Added by LM Studio CLI (lms)
