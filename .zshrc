@@ -31,14 +31,18 @@ alias grs='git restore --staged '
 alias gds='git diff --staged '
 alias gd='git diff'
 
-alias cdh='cd ~'
-
 alias scsts='systemctl status'
 alias sce='systemctl enable'
 alias scr='systemctl restart'
 alias scd='systemctl disable'
 alias scstp='systemctl stop'
 alias scdr='systemctl daemon-reload'
+
+alias cdh='cd ~'
+alias v='vim'
+alias n='nnn -deH'
+alias e='exit'
+alias m='mc'
 
 #fast keyboard key repeat
 set x rate 300 50
@@ -212,13 +216,13 @@ fi
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #[[ ! "$TERM" =~ screen ]] - false if ssh-ed from tmux
-  PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
   LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
     if [[ -o interactive ]] \
       && [[ -z "$VSCODE_IPC_HOOK" ]] \
       && [[ -z "$VSCODE_PID" ]] \
       && [[ "$TERM_PROGRAM" != "vscode" ]]; then
-      exec tmux
+          PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin
+          exec tmux
     fi
 fi
 
