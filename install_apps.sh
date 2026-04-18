@@ -3,7 +3,7 @@ apt-get update
 apt-get upgrade
 
 
-PACKAGES="git zsh tmux ncdu neovim neofetch mc ncdu python3 cmatrix hexcurse htop iperf3 silversearcher-ag exa rename coreutils fzf tldr lf sysbench avahi-daemon avahi-utils w3m lnav vimfm curl wget lynx"
+PACKAGES="git zsh tmux ncdu neovim neofetch mc ncdu python3 cmatrix hexcurse htop iperf3 silversearcher-ag exa rename coreutils fzf tldr lf sysbench avahi-daemon avahi-utils w3m lnav vimfm curl wget lynx nnn"
 
 for pkg in $PACKAGES; do
   echo "Installing $pkg..."
