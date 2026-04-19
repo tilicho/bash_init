@@ -1,0 +1,56 @@
+#!/bin/sh
+
+file="$1"
+width="$2"
+height="$3"
+x="$4"
+y="$5"
+
+mime="$(file --mime-type -Lb -- "$file" 2>/dev/null)"
+
+case "$mime" in
+    text/*|*/json|*/xml|*/javascript)
+        if command -v bat >/dev/null 2>&1; then
+            bat --style=plain --color=always --paging=never -- "$file"
+        else
+            sed -n "1,${height}p" -- "$file"
+        fi
+        ;;
+
+    image/*)
+        if command -v chafa >/dev/null 2>&1; then
+            chafa -f symbols --size "${width}x${height}" -- "$file"
+        else
+            printf 'image file: %s\n' "$file"
+        fi
+        ;;
+
+    application/pdf)
+        if command -v pdftotext >/dev/null 2>&1; then
+            pdftotext -l 10 -nopgbrk -q -- "$file" - | sed -n "1,${height}p"
+        else
+            printf 'pdf file: %s\n' "$file"
+        fi
+        ;;
+
+    video/*|audio/*)
+        if command -v exiftool >/dev/null 2>&1; then
+            exiftool -- "$file"
+        else
+            printf '%s\n' "$mime"
+        fi
+        ;;
+
+    *)
+        if [ -d "$file" ]; then
+            if command -v eza >/dev/null 2>&1; then
+                eza -la -- "$file"
+            else
+                ls -la -- "$file"
+            fi
+        else
+            printf '%s\n' "$mime"
+            file --brief -- "$file"
+        fi
+        ;;
+esac

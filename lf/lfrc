@@ -1,0 +1,49 @@
+# behavior
+set shell sh
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set hidden
+set info size:time
+
+# navigation / UI
+map gh cd ~
+map zh set hidden!
+map zr set reverse!
+
+# editor / shell
+#map e $$EDITOR "$f"
+map e $vim "$f" < /dev/tty > /dev/tty
+map i $$PAGER "$f"
+
+# reusable commands
+cmd mkdir $mkdir -p "$1"; reload
+#cmd trash ${{ mkdir -p ~/.trash; mv $fx ~/.trash; }}
+cmd open &$OPENER "$f"
+
+# preview
+set preview
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/clean
+
+# normal delete: permanently remove
+cmd delete ${{
+    rm -rf -- $fx
+    lf -remote "send $id reload"
+    lf -remote "send $id select \"$target\""
+}}
+
+map D delete
+
+# fzf: jump to file/dir under current directory
+cmd fzf_jump ${{
+    res="$(find . -mindepth 1 2>/dev/null | sed 's#^\./##' | fzf --reverse --prompt='jump> ')" || exit 0
+    esc=$(printf '%s\n' "$res" | sed 's/\\/\\\\/g; s/"/\\"/g')
+    if [ -d "$res" ]; then
+        lf -remote "send $id cd \"$esc\""
+    else
+        lf -remote "send $id select \"$esc\""
+    fi
+}}
+
+map <c-f> fzf_jump
