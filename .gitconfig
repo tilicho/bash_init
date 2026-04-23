@@ -1,6 +1,7 @@
 [core]
     autocrlf = input
     editor = vim
+	pager = delta
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -56,3 +57,8 @@
     email = tilicho@mail.com
 [credential]
     helper = osxkeychain
+[diff]
+	algorithm = minimal
+[delta]
+	dark = false
+	syntax-theme = zenburn
