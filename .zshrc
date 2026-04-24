@@ -44,6 +44,9 @@ alias n='nnn -deH'
 alias e='exit'
 alias m='mc'
 
+alias a='opencode --agent plan run '
+alias ai='opencode --agent build run '
+
 #fast keyboard key repeat
 set x rate 300 50
 ssh_o=`which ssh`
