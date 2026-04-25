@@ -1,3 +1,17 @@
+alias a='opencode --agent plan run'
+alias ai='opencode --agent build run'
+alias c='cd'
+alias cdh='cd ~'
+alias e='exit'
+alias l='ls'
+alias m='mc'
+alias n='nnn -deH'
+alias o='opencode'
+alias p='pwd'
+alias q='exit'
+alias s='ssh'
+alias v='vim'
+
 alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
@@ -38,15 +52,7 @@ alias scd='systemctl disable'
 alias scstp='systemctl stop'
 alias scdr='systemctl daemon-reload'
 
-alias cdh='cd ~'
-alias v='vim'
-alias n='nnn -deH'
-alias e='exit'
-alias m='mc'
 
-alias a='opencode --agent plan run'
-alias ai='opencode --agent build run'
-alias o='opencode'
 
 #fast keyboard key repeat
 set x rate 300 50
