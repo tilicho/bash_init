@@ -9,3 +9,4 @@ brew install lnav vimfm
 brew install bat jq yq fd ripgrep
 brew install delta btop nnn
 brew install duti exiftool chafa
+brew install openssh libfido2

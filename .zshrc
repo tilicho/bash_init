@@ -231,7 +231,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [
       && [[ -z "$VSCODE_IPC_HOOK" ]] \
       && [[ -z "$VSCODE_PID" ]] \
       && [[ "$TERM_PROGRAM" != "vscode" ]]; then
-          PATH=$PATH:/opt/homebrew/bin:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin:$HOME/.opencode/bin
+          PATH=/opt/homebrew/bin:$PATH:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin:$HOME/.opencode/bin
           exec tmux
     fi
 fi
