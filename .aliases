@@ -45,6 +45,7 @@ alias gr='git restore'
 alias grs='git restore --staged '
 alias gds='git diff --staged '
 alias gd='git diff'
+alias gcd='git clone --depth=1 '
 
 alias scsts='systemctl status'
 alias sce='systemctl enable'
