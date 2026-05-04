@@ -1,12 +1,48 @@
 brew update
 brew upgrade
-brew install zsh tmux ncdu neovim neofetch mc ncdu python3 cmatrix hexcurse htop
-brew install iperf3 the_silver_searcher
-brew install exa rename coreutils fzf tldr
-brew install sysbench macmon uv lf
-brew install ffmpeg glow virtualenv
-brew install lnav vimfm
-brew install bat jq yq fd ripgrep
-brew install delta btop nnn
-brew install duti exiftool chafa
-brew install openssh libfido2
+
+packages=(
+  zsh
+  tmux
+  ncdu
+  neovim
+  neofetch
+  mc
+  python3
+  cmatrix
+  hexcurse
+  htop
+  iperf3
+  the_silver_searcher
+  exa
+  rename
+  coreutils
+  fzf
+  tldr
+  sysbench
+  macmon
+  uv
+  lf
+  ffmpeg
+  glow
+  virtualenv
+  lnav
+  vimfm
+  bat
+  jq
+  yq
+  fd
+  ripgrep
+  delta
+  btop
+  nnn
+  duti
+  exiftool
+  chafa
+  openssh
+  libfido2
+)
+
+for package in "${packages[@]}"; do
+  brew install "$package"
+done
