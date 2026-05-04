@@ -41,8 +41,13 @@ packages=(
   chafa
   openssh
   libfido2
+  mosh
 )
 
 for package in "${packages[@]}"; do
   brew install "$package"
 done
+
+MOSH_BIN=$(which mosh-server)
+MOSH_BINDIR=$(dirname $MOSH_BIN)
+echo "export PATH=$PATH:$MOSH_BINDIR" >> ~/.zshenv
