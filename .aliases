@@ -13,6 +13,11 @@ alias s='ssh'
 alias v='vim'
 alias rmrf='rm -rf'
 
+alias se='source ~/.env && source ~/.zshrc && source ~/.tmuxrc'
+alias ve='vim ~/.env'
+alias vz='vim ~/.zshrc'
+alias va='vim ~/.aliases'
+
 alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
