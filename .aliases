@@ -18,6 +18,8 @@ alias ve='vim ~/.env'
 alias vz='vim ~/.zshrc'
 alias va='vim ~/.aliases'
 
+alias update_bash='cd ~/bash_init && git pull origin master && cp .* ../ && source ~/.env && source ~/.zshrc && source ~/.tmux.conf'
+
 alias grep='grep --color=always'
 alias py=python3
 alias shutdown='sudo shutdown -f now'
