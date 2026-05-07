@@ -31,7 +31,9 @@ alias tmuxoff='tmux set prefix None && tmux set key-table off && tmux set status
 
 alias tmuxon='tmux set -u prefix && tmux set -u key-table && tmux set -u status-style && tmux set -u window-status-current-style && tmux refresh-client -S'
 
-alias gs='git s'
+alias gi='git init'
+alias gs='git s --untracked-files=no'
+alias gsu='git s'
 alias gl='git log'
 alias gpom='git pull origin main'
 alias gpoma='git pull origin master'
