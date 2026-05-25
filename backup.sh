@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 OPTIONS=(
    --exclude="/dev/"
    --exclude="/proc/"
@@ -15,9 +18,15 @@ OPTIONS=(
 )
 
 
+if [[ $# -ne 2 ]]; then
+    echo "usage: $0 user host" >&2
+    exit 2
+fi
+
 userName=$1
 hostName=$2
 outDir="/Volumes/etc/backup"
-mkdir "$outDir/$hostname"
-rsync  "${OPTIONS[@]}" "$userName@$hostName:/" "$outDir/hostname/"
+targetDir="$outDir/$hostName"
 
+mkdir -p "$targetDir"
+rsync "${OPTIONS[@]}" "$userName@$hostName:/" "$targetDir/"

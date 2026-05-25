@@ -1,4 +1,6 @@
-source ~/.aliases
+if [[ -r "$HOME/.aliases" ]]; then
+    source "$HOME/.aliases"
+fi
 
 #fast keyboard key repeat
 if command -v xset >/dev/null 2>&1; then
@@ -32,21 +34,29 @@ move_and_alias() {
 
 alias mvln=move_and_alias
 
-# Define exit command as ZLE widget
-exit_shell_widget() {
-  exit
-}
-zle -N exit_shell_widget
-
-bindkey '^w' exit_shell_widget
-
-
 #https://zsh-prompt-generator.site
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
 export FPP_EDITOR="vim -p"
 export ASAN_OPTIONS=abort_on_error=1
 export TSAN_OPTIONS=verbosity=1:halt_on_error=1
 export EDITOR="nvim"
+
+path_prepend_if_dir() {
+    [[ -d "$1" ]] && path=("$1" "${path[@]}")
+}
+
+path_append_if_dir() {
+    [[ -d "$1" ]] && path+=("$1")
+}
+
+typeset -U path
+path_prepend_if_dir /opt/homebrew/bin
+path_prepend_if_dir "$HOME/.opencode/bin"
+path_append_if_dir "$HOME/Library/Python/3.8/bin"
+path_append_if_dir "$HOME/.cargo/bin"
+path_append_if_dir "$HOME/go/bin"
+path_append_if_dir "$HOME/.lmstudio/bin"
+export PATH
 
 
 HISTFILE="$HOME/.zsh_history"
@@ -175,15 +185,6 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [
       && [[ -z "$VSCODE_IPC_HOOK" ]] \
       && [[ -z "$VSCODE_PID" ]] \
       && [[ "$TERM_PROGRAM" != "vscode" ]]; then
-          PATH=/opt/homebrew/bin:$PATH:/Users/ser/Library/Python/3.8/bin:$HOME/.cargo/bin:$HOME/.opencode/bin:$HOME/go/bin
           exec tmux
     fi
 fi
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/ser/.lmstudio/bin"
-# End of LM Studio CLI section
-
-
-# opencode
-export PATH=/Users/ser/.opencode/bin:$PATH

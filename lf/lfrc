@@ -24,7 +24,7 @@ cmd open &$OPENER "$f"
 # preview
 set preview
 set previewer ~/.config/lf/preview
-set cleaner ~/.config/lf/clean
+set cleaner ~/.config/lf/cleaner
 
 # normal delete: permanently remove
 cmd delete ${{
