@@ -19,7 +19,14 @@ alias ve='vim ~/.env'
 alias vz='vim ~/.zshrc'
 alias va='vim ~/.aliases'
 
-alias update_bash='cd ~/bash_init && git pull origin master && cp .* ../ && source ~/.env && source ~/.zshrc && source ~/.tmux.conf'
+update_bash() {
+    cd ~/bash_init || return
+    git pull origin master || return
+    cp .aliases .tmux.conf .vimrc .zshrc ~/ || return
+    [[ ! -f ~/.env ]] || source ~/.env
+    source ~/.zshrc
+    [[ -z "$TMUX" ]] || tmux source-file ~/.tmux.conf
+}
 
 alias grep='grep --color=always'
 alias py=python3
@@ -63,5 +70,3 @@ alias scr='systemctl restart'
 alias scd='systemctl disable'
 alias scstp='systemctl stop'
 alias scdr='systemctl daemon-reload'
-
-

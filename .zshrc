@@ -1,13 +1,22 @@
 source ~/.aliases
 
 #fast keyboard key repeat
-set x rate 300 50
-ssh_o=`which ssh`
+if command -v xset >/dev/null 2>&1; then
+    xset r rate 300 50
+fi
+
+ssh_o=$(command -v ssh)
 myssh() {
-    TERM=screen-256color
-    tmuxoff
-    $ssh_o "$@"
-    tmuxon
+    local status
+    if [[ -n "$TMUX" ]]; then
+        tmuxoff
+    fi
+    TERM=screen-256color "$ssh_o" "$@"
+    status=$?
+    if [[ -n "$TMUX" ]]; then
+        tmuxon
+    fi
+    return $status
 }
 
 alias ssh=myssh
@@ -88,9 +97,11 @@ preexec() { echo -ne $cursor_normal ;} # Use beam shape cursor for each new prom
 
 #use lf to switch directory to last visited in lf
 lfcd() {
-    dir="$(lf -print-last-dir)"
-    echo $dir
-    cd $dir
+    local dir
+    dir="$(lf -print-last-dir)" || return
+    [[ -n "$dir" && -d "$dir" ]] || return
+    echo "$dir"
+    cd -- "$dir" || return
     zle reset-prompt
 }
 zle -N lfcd
@@ -111,7 +122,9 @@ bindkey '^e' edit-command-line
 function view_tmux_pane_in_vim() {
   BUFFER=""
   zle reset-prompt
-  tmux capture-pane -p | vim + -
+  if [[ -n "$TMUX" ]] && command -v tmux >/dev/null 2>&1; then
+    tmux capture-pane -p | vim + -
+  fi
 }
 
 zle -N view_tmux_pane_in_vim

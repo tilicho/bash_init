@@ -71,7 +71,7 @@ nmap  N Nzz
 
 nnoremap <C-j> gj
 nnoremap <C-k> gk
-vnoremap <C-k> gj
+vnoremap <C-j> gj
 vnoremap <C-k> gk
 inoremap <C-j> <C-o>gj
 inoremap <C-k> <C-o>gk
@@ -82,7 +82,7 @@ nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 
 " (Commented out) Map <leader>r to open a terminal in a split
-nnoremap <leader>t :Te<enter>
+nnoremap <leader>t :call ToggleTerminal()<CR>
 nnoremap <leader>p :vsplit \| wincmd l<CR>
 nnoremap <leader>P <C-w>w:q<CR>
 nnoremap <leader>q :q<CR>
@@ -159,7 +159,7 @@ set hlsearch           " Highlight search results
 set clipboard^=unnamed,unnamedplus  " Use system clipboard
 set termguicolors      " Enable true color support
 "set scrolloff=7        " Keep at least 7 lines visible above/below cursor
-set wrapscan!          " Disable wrap-around for searches
+set nowrapscan         " Disable wrap-around for searches
 set listchars=tab:\|_,trail:·,nbsp:+,extends:⟩,precedes:⟨ " Show hidden characters
 set list               " Show invisible characters
 set wildmenu           " Enable command-line autocompletion menu
@@ -186,7 +186,9 @@ autocmd Syntax   * syntax match ExtraWhitespace excludenl /\s\+$/ display contai
 vnoremap Y "+y
 
 " Try sourcing an additional config file, if it exists
-source ~/.vimrc_plug
+if filereadable(expand('~/.vimrc_plug'))
+    source ~/.vimrc_plug
+endif
 
 " Set cursor hover time
 set updatetime=1000
