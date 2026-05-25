@@ -9,16 +9,10 @@ fi
 
 ssh_o=$(command -v ssh)
 myssh() {
-    local status
-    if [[ -n "$TMUX" ]]; then
-        tmuxoff
-    fi
-    TERM=screen-256color "$ssh_o" "$@"
-    status=$?
-    if [[ -n "$TMUX" ]]; then
-        tmuxon
-    fi
-    return $status
+    TERM=screen-256color
+    tmuxoff
+    $ssh_o "$@"
+    tmuxon
 }
 
 alias ssh=myssh
@@ -33,6 +27,15 @@ move_and_alias() {
 }
 
 alias mvln=move_and_alias
+
+# Define exit command as ZLE widget
+exit_shell_widget() {
+  exit
+}
+zle -N exit_shell_widget
+
+bindkey '^w' exit_shell_widget
+
 
 #https://zsh-prompt-generator.site
 export PROMPT="%F{51}%n%f@%F{41}%m%f %F{yellow}%1d%f>"
