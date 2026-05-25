@@ -82,7 +82,8 @@ nnoremap <leader>D ""D
 vnoremap <leader>d ""d
 
 " (Commented out) Map <leader>r to open a terminal in a split
-nnoremap <leader>t :call ToggleTerminal()<CR>
+nnoremap <leader>t :Te<CR>
+nnoremap <leader>T :vsplit term://$SHELL \| wincmd p<CR>
 nnoremap <leader>p :vsplit \| wincmd l<CR>
 nnoremap <leader>P <C-w>w:q<CR>
 nnoremap <leader>q :q<CR>
