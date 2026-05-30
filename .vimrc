@@ -139,6 +139,7 @@ hi CursorLineNR cterm=bold  " Make cursor line number bold
 augroup CLNRSet
     autocmd! ColorScheme * hi CursorLineNR cterm=bold
 augroup END
+autocmd TermClose * if v:event.status == 0 | execute 'silent! bdelete! ' . expand('<abuf>') | endif
 
 " General settings:
 set cursorline  " Highlight the cursor line
