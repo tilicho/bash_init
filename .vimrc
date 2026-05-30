@@ -4,6 +4,7 @@ let g:mapleader = " "
 
 " Insert mode: Pressing 'jk' quickly exits to normal mode
 inoremap jk <ESC>
+inoremap <silent> <C-v> <C-r>+
 
 " Normal mode: * (search for word under cursor) also returns to the original position
 nnoremap * *``
