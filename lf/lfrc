@@ -12,9 +12,14 @@ map zh set hidden!
 map zr set reverse!
 
 # editor / shell
-#map e $$EDITOR "$f"
-map e $vim "$f" < /dev/tty > /dev/tty
-map i $$PAGER "$f"
+map e $nvim -u ~/.vimrc "$f" < /dev/tty > /dev/tty
+map i $less -R "$f" 
+
+# copy / paste
+map y copy
+map p paste
+map d delete
+map c push :mkdir<space>
 
 # reusable commands
 cmd mkdir $mkdir -p "$1"; reload
@@ -24,7 +29,7 @@ cmd open &$OPENER "$f"
 # preview
 set preview
 set previewer ~/.config/lf/preview
-set cleaner ~/.config/lf/cleaner
+set cleaner ~/.config/lf/clean
 
 # normal delete: permanently remove
 cmd delete ${{
