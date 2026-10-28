@@ -7,6 +7,8 @@ set hidden
 set info size:time
 
 # navigation / UI
+map <space>
+map v toggle
 map gh cd ~
 map zh set hidden!
 map zr set reverse!
@@ -17,11 +19,36 @@ map i $less -R "$f"
 
 # copy / paste
 map y copy
+map <space>c copy_name
+map <space>p copy_dir
 map p paste
 map d delete
 map c push :mkdir<space>
 
 # reusable commands
+cmd copy_name ${{
+    if [ "${1:-}" = directory ]; then
+        name=$PWD
+    else
+        [ -n "${f:-}" ] || exit 0
+        name=${f##*/}
+    fi
+    case "$(uname -s)" in
+        Darwin) printf '%s' "$name" | pbcopy ;;
+        *)
+            # Requires terminal OSC 52 support; tmux also needs set-clipboard enabled.
+            if [ -n "${TMUX:-}" ]; then
+                printf '%s' "$name" | tmux load-buffer -w -
+            else
+                encoded=$(printf '%s' "$name" | base64 | tr -d '\r\n')
+                printf '\033]52;c;%s\007' "$encoded" > /dev/tty
+            fi
+            ;;
+    esac
+}}
+
+cmd copy_dir copy_name directory
+
 cmd mkdir $mkdir -p "$1"; reload
 #cmd trash ${{ mkdir -p ~/.trash; mv $fx ~/.trash; }}
 cmd open &$OPENER "$f"
