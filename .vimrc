@@ -16,6 +16,10 @@ nnoremap * *``
 " Search for error: in terminal mode
 :tnoremap <silent> <Leader><F1> <C-\><C-n>?\Cerror\:<CR>
 
+" Hide line numbers with <leader>n
+nnoremap <leader>n :set nonumber norelativenumber<CR>
+nnoremap <leader>N :set number relativenumber<CR>
+
 " Quickfix window mappings:
 " noremap <F9> :vertical botright copen 80<cr>  " Open quickfix in a vertical split
 " Open quickfix window with height 20
